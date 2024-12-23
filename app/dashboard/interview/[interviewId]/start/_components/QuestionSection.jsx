@@ -10,22 +10,24 @@ const QuestionSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
       alert("Sorry, your browser does not support text to speech.");
     }
   };
+  const questions = Array.isArray(mockInterviewQuestion)
+    ? mockInterviewQuestion
+    : [mockInterviewQuestion]; // Normalize to array
+    
   return (
     mockInterviewQuestion && (
       <div className=" flex flex-col justify-between p-5 border rounded-lg my-1 bg-secondary">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 ">
-          {mockInterviewQuestion &&
-            mockInterviewQuestion.map((question, index) => (
-              <h2
-                className={`p-2  rounded-full text-center text-xs md:text-sm cursor-pointer md:block hidden ${
-                  activeQuestionIndex == index
-                    ? "bg-black text-white"
-                    : "bg-secondary"
-                }`}
-              >
-                Question #{index + 1}
-              </h2>
-            ))}
+        {questions.map((question, index) => (
+            <h2
+              key={index}
+              className={`p-2 rounded-full text-center text-xs md:text-sm cursor-pointer md:block hidden ${
+                activeQuestionIndex === index ? "bg-black text-white" : "bg-secondary"
+              }`}
+            >
+              Question #{index + 1}
+            </h2>
+          ))}
         </div>
         <h2 className="my-5 text-md md:text-lg">
           {mockInterviewQuestion[activeQuestionIndex]?.Question}
