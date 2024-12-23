@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { UserButton } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
-import { ModeToggle } from "@/components/ModeToggle";
 import Link from "next/link";
 const Header = ({ logo }) => {
   const [isUserButtonLoaded, setUserButtonLoaded] = useState(false);
@@ -31,7 +30,7 @@ const Header = ({ logo }) => {
     console.log(path);
   }, []);
   return (
-    <div className=" bg-secondary shadow-sm ">
+    <div className=" bg-white shadow-lg ">
       <div className="w-[80%] m-auto flex gap-4 items-center justify-between">
         <Link className="hidden md:block"  href="/dashboard">
           <Image src={logo} width={80} height={80} alt="logo" />
@@ -54,16 +53,6 @@ const Header = ({ logo }) => {
           >
             Questions
           </li>
-          </Link>
-          
-          <Link href="/dashboard/upgrade">
-            <li
-              className={`hover:text-black hover:font-bold transition-all cursor-pointer ${
-                path == "/dashboard/upgrade" && "text-black font-bold"
-              }`}
-            >
-              Upgrade
-            </li>
           </Link>
 
           <Link href="/dashboard/howit">
@@ -91,7 +80,7 @@ const Header = ({ logo }) => {
           </button>
         </div>
         <div className="flex gap-10" >
-          <ModeToggle  />
+          {/* <ModeToggle  /> */}
           {isUserButtonLoaded ? <UserButton /> : <SkeletonLoader />}
         </div>
       </div>
@@ -116,15 +105,6 @@ const Header = ({ logo }) => {
           >
             Questions
           </li>
-          </Link>
-          <Link href="/dashboard/upgrade">
-            <li
-              className={`hover:text-black hover:font-bold transition-all cursor-pointer ${
-                path == "/dashboard/upgrade" && "text-black font-bold"
-              }`}
-            >
-              Upgrade
-            </li>
           </Link>
           <Link href="/dashboard/howit">
             <li
