@@ -210,6 +210,7 @@ const AddNewInterview = () => {
                       className="mt-1"
                       placeholder="Ex. 5"
                       max="50"
+                      min="0"
                       type="number"
                       required
                       onChange={(e) => setJobExperience(e.target.value)}

@@ -18,6 +18,7 @@ const RecordAnswerSection = ({
   mockInterviewQuestion,
   activeQuestionIndex,
   interviewData,
+  setShowEndinterviewButton,
 }) => {
   const [userAnswer, setUserAnswer] = useState("");
   const { user } = useUser();
@@ -135,9 +136,11 @@ const RecordAnswerSection = ({
 
       if (resp) {
         toast("User Answer recorded successfully");
+        
       }
       setUserAnswer("");
       setLoading(false);
+      setShowEndinterviewButton(true);
     } catch (error) {
       console.error(error);
       toast("An error occurred while recording the user answer");
