@@ -1,4 +1,6 @@
 import { SignIn } from "@clerk/nextjs";
+import logo from "../../../../public/logo.svg";
+
 
 export default function Page() {
   return (
@@ -7,7 +9,7 @@ export default function Page() {
         <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
           <img
             alt=""
-            src="https://www.southmoorschool.co.uk/wp-content/uploads/job_interview_illustration.jpg"
+            src="https://www.upgrad.com/_ww3-next/image/?url=https%3A%2F%2Fd2o2utebsixu4k.cloudfront.net%2FIMGug-banner-image-92c836c85bef4be4bbae30ca1840ac58.png&w=3840&q=75"
             className="absolute inset-0 h-full w-full object-cover opacity-80"
           />
 
@@ -28,13 +30,13 @@ export default function Page() {
             </a>
 
             <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-              Welcome to AI interview 📊
+              Welcome to AI interview 
             </h2>
 
-            <p className="mt-4 leading-relaxed text-white/90">
+            {/* <p className="mt-4 leading-relaxed text-white/90">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
               nam dolorum aliquam, quibusdam aperiam voluptatum.
-            </p>
+            </p> */}
           </div>
         </section>
 
@@ -60,13 +62,13 @@ export default function Page() {
               </a>
 
               <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl dark:text-white">
-                Welcome to Squid 🦑
+                Welcome to upGrad's AI Mock Inteview
               </h1>
 
-              <p className="mt-4 leading-relaxed text-gray-500 dark:text-gray-400">
+              {/* <p className="mt-4 leading-relaxed text-gray-500 dark:text-gray-400">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
-              </p>
+              </p> */}
             </div>
             <SignIn />
           </div>

@@ -26,6 +26,7 @@ const StartInterview = ({ params }) => {
     const jsonMockResp = JSON.parse(result[0].jsonMockResp);
     console.log(jsonMockResp);
     setMockInterviewQuestion(jsonMockResp);
+    console.log(jsonMockResp , "json")
     setInterviewData(result[0]);
   };
 
@@ -53,18 +54,18 @@ const StartInterview = ({ params }) => {
             Previous Question
           </Button>
         )}
-        {activeQuestionIndex != mockInterviewQuestion?.length - 1 && (
+        {/* {activeQuestionIndex != mockInterviewQuestion?.length - 1 && (
           <Button
             onClick={() => setActiveQuestionIndex(activeQuestionIndex + 1)}
           >
             Next Question
           </Button>
-        )}
-        {activeQuestionIndex == mockInterviewQuestion?.length - 1 && (
+        )} */}
+        {(
           <Link
             href={"/dashboard/interview/" + interviewData?.mockId + "/feedback"}
           >
-            <Button>End Interview</Button>
+            <Button className="flex-1 border border-[#e62d3c] bg-white text-[#e62d3c] px-4 py-2 rounded-lg hover:bg-pink-50 transition-colors">End Interview</Button>
           </Link>
         )}
       </div>

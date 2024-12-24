@@ -108,13 +108,15 @@ const AddQuestions = () => {
   return (
     <div>
       <div
-        className="p-10 rounded-lg border bg-secondary hover:scale-105 hover:shadow-sm transition-all cursor-pointer"
+        className="w-full h-64 border-2 border-dashed border-gray-300 rounded-lg hover:border-[#e62d3c] hover:bg-pink-50 transition-colors group"
         onClick={() => setOpenDialog(true)}
       >
-        <h2 className=" text-lg text-center">+ Add New Questions</h2>
-      </div>
+        <div className="flex flex-col items-center justify-center h-full space-y-4">
+        <h2 className="text-lg font-medium text-gray-600 group-hover:text-[#e62d3c]">+ Add New Questions</h2>
+        </div>
+        </div>
 
-      <Dialog open={openDailog}>
+      <Dialog open={openDailog} onOpenChange={(isOpen) => setOpenDialog(isOpen)}>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>What model questions are you seeking</DialogTitle>

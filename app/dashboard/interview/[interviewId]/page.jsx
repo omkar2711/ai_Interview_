@@ -62,8 +62,8 @@ const Interview = ({ params }) => {
               <Webcam
                 onUserMedia={() => setWebCamEnabled(true)}
                 onUserMediaError={() => setWebCamEnabled(false)}
-                height={300}
-                width={300}
+                height={350}
+                width={350}
                 mirrored={true}
               />
             </div>
@@ -74,7 +74,7 @@ const Interview = ({ params }) => {
           )}
           <div>
             <Button
-              className={`${webCamEnabled ? "w-full" : "w-full"}`}
+              className={`${webCamEnabled ? "w-full flex-1 bg-[#e62d3c] text-white px-4 py-2 rounded-lg hover:bg-[#d41e2d] transition-colors" : "w-full flex-1 bg-[#e62d3c] text-white px-4 py-2 rounded-lg hover:bg-[#d41e2d] transition-colors"}`}
               onClick={() => setWebCamEnabled((prev) => !prev)}
             >
               {webCamEnabled ? "Close WebCam" : "Enable WebCam"}
@@ -84,7 +84,7 @@ const Interview = ({ params }) => {
       </div>
       <div className="flex justify-center my-4 md:my-0 md:justify-end md:items-end">
         <Link href={"/dashboard/interview/" + params.interviewId + "/start"}>
-          <Button>Start Interview</Button>
+          <Button className="flex-1 border border-[#e62d3c] bg-white text-[#e62d3c] px-4 py-2 rounded-lg hover:bg-pink-50 transition-colors">Start Interview</Button>
         </Link>
       </div>
     </div>

@@ -99,7 +99,7 @@ const RecordAnswerSection = ({
       setLoading(true);
       const feedbackPrompt =
         "Question:" +
-        mockInterviewQuestion[activeQuestionIndex]?.Question +
+        mockInterviewQuestion.Question +
         ", User Answer:" +
         userAnswer +
         " , Depends on question and user answer for given interview question" +
@@ -124,8 +124,8 @@ const RecordAnswerSection = ({
 
       const resp = await db.insert(UserAnswer).values({
         mockIdRef: interviewData?.mockId,
-        question: mockInterviewQuestion[activeQuestionIndex]?.Question,
-        correctAns: mockInterviewQuestion[activeQuestionIndex]?.Answer,
+        question: mockInterviewQuestion.Question,
+        correctAns: mockInterviewQuestion.Answer,
         userAns: userAnswer,
         feedback: jsonFeedbackResp?.feedback,
         rating: jsonFeedbackResp?.rating,
@@ -159,7 +159,7 @@ const RecordAnswerSection = ({
       </div>
       <div className="md:flex mt-4 md:mt-8 md:gap-5">
         <div className="my-4 md:my-0">
-          <Button onClick={() => setWebCamEnabled((prev) => !prev)}>
+          <Button className="flex-1 bg-[#e62d3c] text-white px-4 py-2 rounded-lg hover:bg-[#d41e2d] transition-colors" onClick={() => setWebCamEnabled((prev) => !prev)}>
             {webCamEnabled ? "Close WebCam" : "Enable WebCam"}
           </Button>
         </div>
