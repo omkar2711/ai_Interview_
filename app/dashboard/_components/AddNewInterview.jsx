@@ -50,11 +50,28 @@ const predefinedRoles = {
     "Experienced in building decentralized applications using Ethereum, Solidity, and smart contract development. Knowledge of consensus algorithms, cryptography, and tokenomics.",
   "Game Developer":
     "Proficient in game engines like Unity and Unreal Engine. Skilled in programming languages such as C# and C++. Knowledge of physics simulation, 3D modeling, and rendering techniques.",
-  "Data Analyst": 
+  "Data Analyst":
     "Proficient in data cleaning, analysis, and visualization using Python, R, or Excel. Skilled in SQL for database queries and tools like Tableau or Power BI for reporting. Knowledge of statistical methods and business intelligence concepts.",
-  "Business Analyst": 
+  "Business Analyst":
     "Experienced in gathering and documenting business requirements, creating process flows, and analyzing data to support decision-making. Skilled in tools like JIRA, Confluence, Excel, and SQL. Knowledge of Agile methodologies and stakeholder communication.",
+  "Digital Marketing Specialist":
+    "Experienced in designing and executing marketing campaigns across platforms. Skilled in optimizing content for SEO and SEM, and proficient in tools like Google Analytics and AdWords.",
+  "Social Media Manager":
+    "Proficient in managing social media strategy and creating engaging content. Experienced in audience engagement, analyzing metrics, and using tools like Hootsuite or Buffer.",
+  "SEO Specialist":
+    "Experienced in conducting keyword research and implementing strategies to improve search rankings. Skilled in using tools like SEMrush, Ahrefs, and Google Search Console.",
+  "Content Marketing Manager":
+    "Expert in creating, managing, and promoting content to attract and retain customers. Skilled in content strategy development, copywriting, and analytics.",
+  "PPC Specialist":
+    "Experienced in managing paid advertising campaigns on platforms like Google Ads and social media. Proficient in ad optimization and performance tracking.",
+  "Email Marketing Specialist":
+    "Skilled in developing and managing email campaigns to drive engagement and sales. Experienced in tools like Mailchimp, Constant Contact, or HubSpot.",
+  "Analytics Specialist":
+    "Proficient in interpreting marketing performance data to improve ROI. Skilled in tools like Google Analytics, Tableau, and Power BI.",
+  "E-commerce Manager":
+    "Experienced in driving online sales and optimizing the user experience for e-commerce platforms. Skilled in inventory management, marketing strategies, and tools like Shopify or WooCommerce.",
 };
+
 
 
 const AddNewInterview = () => {
