@@ -1,7 +1,31 @@
 import { Lightbulb, Volume2 } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const QuestionSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
+const QuestionSection = ({ mockInterviewQuestion, activeQuestionIndex, followUpQuestion }) => {
+  const [questions, setQuestions] = useState([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(activeQuestionIndex || 0);
+
+  useEffect(() => {
+    // Ensure `mockInterviewQuestion` is an array and initialize questions
+    const initialQuestions = Array.isArray(mockInterviewQuestion)
+      ? [...mockInterviewQuestion]
+      : [mockInterviewQuestion];
+
+    // Add follow-up question if it's valid and not already included
+    if (followUpQuestion && !initialQuestions.some(q => q.Question === followUpQuestion)) {
+      initialQuestions.push({
+        Question: followUpQuestion,
+        Answer: "", // Add empty Answer field for consistency
+      });
+    }
+
+    // Update state with the updated questions array
+    setQuestions(initialQuestions);
+
+    // Automatically move to the next question
+    setCurrentQuestionIndex(initialQuestions.length - 1);
+  }, [mockInterviewQuestion, followUpQuestion]);
+
   const textToSpeech = (text) => {
     if ("speechSynthesis" in window) {
       const speech = new SpeechSynthesisUtterance(text);
@@ -11,58 +35,38 @@ const QuestionSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
     }
   };
 
-  // Ensure `mockInterviewQuestion` is an array
-  const questions = Array.isArray(mockInterviewQuestion)
-    ? mockInterviewQuestion
-    : [mockInterviewQuestion]; 
-
   return (
-    <div className="flex flex-col  p-5 border rounded-lg my-1 bg-secondary">
+    <div className="flex flex-col p-5 border rounded-lg my-1 bg-secondary">
       {/* Question Navigation */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-        {questions.map((question, index) => (
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {/* {questions.map((question, index) => (
           <h2
             key={index}
             className={`p-2 rounded-full text-center text-xs md:text-sm cursor-pointer ${
-              activeQuestionIndex === index
+              currentQuestionIndex === index
                 ? "bg-[#e62d3c] text-white"
                 : "bg-secondary"
             }`}
+            onClick={() => setCurrentQuestionIndex(index)} // Allow navigation between questions
           >
             Question #{index + 1}
           </h2>
-        ))}
+        ))} */}
+        <h2 className="p-2 rounded-full text-center text-xs md:text-sm cursor-pointer bg-[#e62d3c] text-white">Question</h2>
       </div>
 
       {/* Active Question Content */}
-      {questions[activeQuestionIndex] && (
+      {questions[currentQuestionIndex] && (
         <>
           <h2 className="my-5 text-md md:text-lg font-bold">
-            {questions[activeQuestionIndex].Question}
+            {questions[currentQuestionIndex].Question}
           </h2>
-          {/* <Volume2
+          <Volume2
             className="cursor-pointer mb-4"
             onClick={() =>
-              textToSpeech(questions[activeQuestionIndex].Question)
+              textToSpeech(questions[currentQuestionIndex].Question)
             }
           />
-          <div className="border rounded-lg p-5 bg-blue-100">
-            <h2 className="flex gap-2 items-center text-blue-800">
-              <Lightbulb />
-              <strong>Note:</strong>
-            </h2>
-            <h2 className="text-sm text-blue-600 my-2">
-              {process.env.NEXT_PUBLIC_QUESTION_NOTE || "Think critically and provide structured answers."}
-            </h2>
-          </div> */}
-
-          {/* Answer Section */}
-          {/* <div className="border rounded-lg p-5 mt-4 bg-green-50">
-            <h2 className="font-bold text-lg text-green-800">Answer:</h2>
-            <p className="text-sm text-green-700 mt-2">
-              {questions[activeQuestionIndex].Answer}
-            </p>
-          </div> */}
         </>
       )}
     </div>

@@ -15,6 +15,7 @@ const StartInterview = ({ params }) => {
   const [mockInterviewQuestion, setMockInterviewQuestion] = useState();
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
   const [showEndInterviewButton, setShowEndinterviewButton] = useState(false);
+  const [followUpQuestion, setFollowUpQuestion] = useState("");
   useEffect(() => {
     GetInterviewDetails();
   }, []);
@@ -39,6 +40,7 @@ const StartInterview = ({ params }) => {
         <QuestionSection
           mockInterviewQuestion={mockInterviewQuestion}
           activeQuestionIndex={activeQuestionIndex}
+          followUpQuestion={followUpQuestion}
         />
 
         {/* Video/audio Recording */}
@@ -47,6 +49,7 @@ const StartInterview = ({ params }) => {
           activeQuestionIndex={activeQuestionIndex}
           interviewData={interviewData}
           setShowEndinterviewButton={setShowEndinterviewButton}
+          setFollowUpQuestion={setFollowUpQuestion}
         />
       </div>
       <div className="flex gap-3 my-5 md:my-0 md:justify-end md:gap-6">
